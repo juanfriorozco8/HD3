@@ -1,4 +1,4 @@
-import java.util.Arrays;
+import java.util.Random;
 
 public class MergeSort {
     public static void mergeSort(int[] arr, int left, int right) {
@@ -45,12 +45,19 @@ public class MergeSort {
     }
 
     public static void main(String[] args) {
-        int[] arr = {12, 11, 13, 5, 6, 7};
-        System.out.println("Arreglo original: " + Arrays.toString(arr));
+        Random rand = new Random();
+        int[] arr = new int[1500]; 
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = rand.nextInt(15000); 
+        }
 
+        long startTime = System.nanoTime(); 
         mergeSort(arr, 0, arr.length - 1);
+        long endTime = System.nanoTime(); 
 
-        System.out.println("Arreglo ordenado: " + Arrays.toString(arr));
+        long duration = endTime - startTime; 
+
+        System.out.println("Tiempo de ejecución de Merge Sort: " + duration + " nanosegundos");
     }
 }
 
