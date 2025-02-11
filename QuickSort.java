@@ -1,4 +1,4 @@
-import java.util.Arrays;
+import java.util.Random;
 
 public class QuickSort {
 
@@ -33,6 +33,21 @@ public class QuickSort {
         return i + 1; 
     }
 
+    public static void main(String[] args) {
+        Random rand = new Random();
+        int[] arr = new int[1500]; 
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = rand.nextInt(15000); 
+        }
+
+        long startTime = System.nanoTime(); 
+        quickSort(arr, 0, arr.length - 1);
+        long endTime = System.nanoTime(); 
+
+        long duration = endTime - startTime; 
+
+        System.out.println("Tiempo de ejecución de Quick Sort: " + duration + " nanosegundos");
+    }
     
 }
 
