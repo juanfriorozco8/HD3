@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Random;
 public class InsertionSort {
     public static void insertionSort(int[] arr) {
         int n = arr.length;
@@ -15,11 +16,19 @@ public class InsertionSort {
     }
 
     public static void main(String[] args) {
-        int[] arr = {12, 11, 13, 5, 6};
-        System.out.println("Arreglo original: " + Arrays.toString(arr));
+        Random rand = new Random();
+        int[] arr = new int[1500]; 
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = rand.nextInt(1500); 
+        }
 
+        long startTime = System.nanoTime(); 
         insertionSort(arr);
+        long endTime = System.nanoTime(); 
 
-        System.out.println("Arreglo ordenado: " + Arrays.toString(arr));
+        long duration = endTime - startTime; 
+
+        System.out.println("Tiempo de ejecución de Insertion Sort: " + duration + " nanosegundos");
     }
+    
 }
