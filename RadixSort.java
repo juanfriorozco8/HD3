@@ -44,9 +44,9 @@ public class RadixSort {
 
     public static void main(String[] args) {
         Random rand = new Random();
-        int[] arr = new int[1500]; 
+        int[] arr = new int[10000]; 
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = rand.nextInt(15000); 
+            arr[i] = rand.nextInt(10000); 
         }
 
         long startTime = System.nanoTime(); 
