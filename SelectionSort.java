@@ -8,12 +8,13 @@ public class SelectionSort {
             int minIndex = i;
 
             for (int j = i + 1; j < n; j++) {
+                //si hay un elemento menor poner el nuevo indice dle minimo
                 if (arr[j] < arr[minIndex]) {
                     minIndex = j;
                 }
             }
 
-            int temp = arr[minIndex];
+            int temp = arr[minIndex]; //cambiar el minimo con la posicion actual
             arr[minIndex] = arr[i];
             arr[i] = temp;
         }

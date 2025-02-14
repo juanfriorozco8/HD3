@@ -1,16 +1,21 @@
 import java.util.Random;
-public class InsertionSort {
-    public static void insertionSort(int[] arr) {
-        int n = arr.length;
-        for (int i = 1; i < n; i++) {
-            int key = arr[i];
-            int j = i - 1;
 
+public class InsertionSort {
+    /*
+     * Metodo para ordenar el arreglo con insertion sort
+     */
+    public static void insertionSort(int[] arr) {
+        int n = arr.length; 
+        for (int i = 1; i < n; i++) {
+            int key = arr[i]; //elemento que se tendrá que insertar
+            int j = i - 1; //posicion anterior a la que se comparará
+
+        
             while (j >= 0 && arr[j] > key) {
-                arr[j + 1] = arr[j];
-                j = j - 1;
+                arr[j + 1] = arr[j]; //mueve el elemento a la derecha
+                j = j - 1; //resta uno al indice
             }
-            arr[j + 1] = key;
+            arr[j + 1] = key; //insertar el elemento en su posicion
         }
     }
 

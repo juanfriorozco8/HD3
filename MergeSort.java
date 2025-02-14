@@ -5,11 +5,12 @@ public class MergeSort {
         if (left < right) {
             int mid = left + (right - left) / 2;
 
-           
-            mergeSort(arr, left, mid);
+           //organiza la primera mitad
+           mergeSort(arr, left, mid);
+            //organiza la segunda mitad
             mergeSort(arr, mid + 1, right);
 
-           
+           //une ambas mitades
             merge(arr, left, mid, right);
         }
     }
@@ -21,24 +22,25 @@ public class MergeSort {
         int[] leftArr = new int[n1];
         int[] rightArr = new int[n2];
 
-        
+        //copiar los elementos en los subarreglos
         for (int i = 0; i < n1; i++) leftArr[i] = arr[left + i];
         for (int j = 0; j < n2; j++) rightArr[j] = arr[mid + 1 + j];
 
         int i = 0, j = 0, k = left;
         while (i < n1 && j < n2) {
             if (leftArr[i] <= rightArr[j]) {
-                arr[k] = leftArr[i];
+                arr[k] = leftArr[i]; //insertar elemento menor
                 i++;
             } else {
-                arr[k] = rightArr[j];
+                arr[k] = rightArr[j]; //insertar elemento mayor
                 j++;
             }
             k++;
         }
 
-        
-        while (i < n1) arr[k++] = leftArr[i++];
+
+        //Copiar el resto de elemento en el array que corresponde
+        while (i < n1) arr[k++] = leftArr[i++]; 
 
         
         while (j < n2) arr[k++] = rightArr[j++];

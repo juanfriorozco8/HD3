@@ -2,13 +2,15 @@ import java.util.Random;
 
 public class RadixSort {
     public static void radixSort(int[] arr) {
-        int max = getMax(arr);
+        int max = getMax(arr); //agarra el numero mas grande del array
 
+        //itera y ordena el arreglo segun el digito
         for (int exp = 1; max / exp > 0; exp *= 10) {
             countingSort(arr, exp);
         }
     }
 
+    //retorna el valor maximo del arreglo
     private static int getMax(int[] arr) {
         int max = arr[0];
         for (int i = 1; i < arr.length; i++) {
@@ -19,6 +21,7 @@ public class RadixSort {
         return max;
     }
 
+    //ordena usando counting sort en un digito especifico
     private static void countingSort(int[] arr, int exp) {
         int n = arr.length;
         int[] output = new int[n]; 
@@ -39,6 +42,7 @@ public class RadixSort {
             count[(arr[i] / exp) % 10]--;
         }
 
+        //copia los elementos ya ordenados en el arreglo principal
         System.arraycopy(output, 0, arr, 0, n);
     }
 
